@@ -22,7 +22,6 @@ const pages = [
 
 const NavBar = () => {
   const { account } = useContext(Web3Context);
-  const logo = "🖼️";
 
   return (
     <AppBar position="static">
