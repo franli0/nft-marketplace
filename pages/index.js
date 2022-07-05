@@ -5,7 +5,7 @@ import { LinearProgress } from '@mui/material'
 import UnsupportedChain from '../src/components/molecules/UnsupportedChain'
 import { mapAvailableMarketItems } from '../src/utils/nft'
 
-export default function Home () {
+export default function Home() {
   const [nfts, setNfts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const { marketplaceContract, nftContract, isReady, network } = useContext(Web3Context)
@@ -13,7 +13,7 @@ export default function Home () {
   useEffect(() => {
     loadNFTs()
   }, [isReady])
-  async function loadNFTs () {
+  async function loadNFTs() {
     if (!isReady) return
     const data = await marketplaceContract.fetchAvailableMarketItems()
     const items = await Promise.all(data.map(mapAvailableMarketItems(nftContract)))
@@ -21,10 +21,8 @@ export default function Home () {
     setIsLoading(false)
   }
 
-  if (!network) return <UnsupportedChain/>
-  if (isLoading) return <LinearProgress/>
+  if (!network) return <UnsupportedChain />
+  if (isLoading) return <LinearProgress />
   if (!isLoading && !nfts.length) return <h1>No NFTs for sale</h1>
-  return (
-    <NFTCardList nfts={nfts} setNfts={setNfts} withCreateNFT={false}/>
-  )
+  return <NFTCardList nfts={nfts} setNfts={setNfts} withCreateNFT={false} />
 }
