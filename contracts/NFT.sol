@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
+import '@openzeppelin/contracts/token/ERC721/ERC721.sol';
+import '@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol';
+import '@openzeppelin/contracts/utils/Counters.sol';
 
 // TO DO: Explain the reason/advantadge to use ERC721URIStorage instead of ERC721 itself
 contract NFT is ERC721URIStorage {
@@ -15,7 +15,7 @@ contract NFT is ERC721URIStorage {
 
     event TokenMinted(uint256 indexed tokenId, string tokenURI, address marketplaceAddress);
 
-    constructor(address _marketplaceAddress) ERC721("MarkKop", "MARK") {
+    constructor(address _marketplaceAddress) ERC721('franli0', 'FRANK') {
         marketplaceAddress = _marketplaceAddress;
     }
 
